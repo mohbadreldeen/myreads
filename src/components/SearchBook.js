@@ -37,6 +37,7 @@ export default function SearchBook(props) {
             <div className="search-books-input-wrapper">
               <input
                 type="text"
+                value={query}
                 placeholder="Search by title, author, or ISBN"
                 onChange={handleChange}
               />

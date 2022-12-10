@@ -3,8 +3,7 @@ export default function BookShelf ( props ) {
     const {
         title,
         books,
-        updateBook,
-        setUpdates
+        updateBook
     } = props;
     return (
         <div className="bookshelf">
