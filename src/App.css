@@ -279,6 +279,7 @@ body {
   padding:10px 0;
 }
 .book-details--content img{
+  width: 25%;
   max-width: 100%;
   box-shadow: 0 0 3px rgb(0 0 0 / 20%);
 }
@@ -300,7 +301,7 @@ body {
   color: var(--primary-color);
   font-size: 12px;
 }
-.book-details--meta span{font-weight: 600;}
+.book-details--meta span{font-weight: 600;display: inline-block;}
 .book-details--meta--authors{
   color: var(--primary-color);
   font-size: 14px;
@@ -309,6 +310,10 @@ body {
 @media (max-width: 800px) {
   .book-details--content {
     flex-direction: column;
+  }
+  .book-details--content img{
+    width: auto;
+    max-width: 100%;
   }
 }
 
