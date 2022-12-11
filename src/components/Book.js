@@ -1,10 +1,16 @@
+import { Link } from 'react-router-dom';
 import { useState } from "react";
-export default function Book ({book, updateBook}) {
+export default function Book (props) {
+    const {
+        book,
+        updateBook
+    } = props;
     const [shelf, setShelf] = useState(book.shelf ? book.shelf : 'none');
     const handleChange = (e) => {
         updateBook(book, e.target.value);
         setShelf(e.target.value);
     };
+
     const thumbnail = book.imageLinks && book.imageLinks.thumbnail ? book.imageLinks.thumbnail : './no-cover.png';
     
     return (
@@ -33,6 +39,7 @@ export default function Book ({book, updateBook}) {
             <div className="book-authors">{
                 Array.isArray(book.authors) && book.authors.map((author, index)=> <span key={index} className="book-author">{author}</span>)
             }</div>
+            <Link className="detail-btn" to={`/book/${book.id}`}>Details</Link>
         </div>
     );
 }

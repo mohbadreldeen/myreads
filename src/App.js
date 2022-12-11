@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import {getAll, update} from './BooksAPI';
 import MainPage from './pages/MainPage'; 
 import SearchPage from './pages/SearchPage'; 
+import BookDetailsPage from './pages/BookDetailsPage'; 
 
 import "./App.css";
 function App() {  
   const [books, setBooks] = useState([]);
+
  
   const updateBook = (book, shelf) => {
    update(book, shelf).then((response) => {
@@ -31,12 +33,20 @@ function App() {
     <div className="app">
       <Routes>
           <Route path="/" element={<MainPage updateBook={updateBook} 
-            currentlyReading={books.filter(book => book.shelf === 'currentlyReading')} 
-            wantToRead={books.filter(book => book.shelf === 'wantToRead')} 
-            read={books.filter(book => book.shelf === 'read')} />} 
+                                      books={books}
+                                      
+            // currentlyReading={books.filter(book => book.shelf === 'currentlyReading')} 
+            // wantToRead={books.filter(book => book.shelf === 'wantToRead')} 
+            // read={books.filter(book => book.shelf === 'read')}
+             />} 
           />
-          <Route path="/search" element={<SearchPage updateBook={updateBook} myBooks={books} />}
-      />
+          <Route path="/search" element={<SearchPage 
+                                          updateBook={updateBook} 
+                                          myBooks={books}
+                                          
+                                        />}
+          />
+          <Route path="/book/:id" element={<BookDetailsPage />} />
       </Routes>
     </div>
   );

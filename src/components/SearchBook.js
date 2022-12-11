@@ -32,7 +32,7 @@ export default function SearchBook(props) {
     return (
         <div className="search-books">
           <div className="search-books-bar">
-          <Link className="close-search" to="/">Add a book</Link>
+          <Link className="close-search" to="/">Back To Home</Link>
           
             <div className="search-books-input-wrapper">
               <input
